@@ -44,3 +44,7 @@ class Solution:
         backtrack(n, 1, k, [], res)
         
         return res
+
+'''
+We can swap positions or use pop() to backtrack
+'''

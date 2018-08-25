@@ -1,4 +1,4 @@
-#backtracking to print
+#backtracking to print(and store)
 class Solution:
     def permute(self, nums):
         """
@@ -13,6 +13,7 @@ class Solution:
 
             if start == end:
                 print(num)
+                '''res.append(num[::]) to store result in array'''
                 
             for i in range(start, end+1):
                 num[start], num[i] = num[i], num[start]
