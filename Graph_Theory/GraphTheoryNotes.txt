@@ -1,0 +1,33 @@
+Graph - consist of Nodes(vertices) and Edges(the connecting lines).
+Directed and undirected graphs.
+Directed edges are called arcs.
+
+graph = {
+	"a": ["c"],
+	"b": ["c", "e"],
+	"c": ["a", "b", "d", "e"],
+	"d": ["c"],
+	"e": ["c", "b"],
+	"f": []
+	}
+Graph can be represented as a dictionary. The keys are the nodes and the 
+list are the list of nodes that are connected to the node.
+
+An edge can be seen as a tuple, ("a", "b").
+
+To generate edges, we can use the following function:
+
+def generate_edges(graph):
+	for node in graph:
+		for neighbour in node:
+			edges.append(node, neighbour)
+	return edges
+
+to find isolated_nodes:
+
+def find_isolated_nodes(graph):
+	isolated = []
+	for node in graph:
+		if not graph[node]:
+			isolated.append(node)
+	return isolated
