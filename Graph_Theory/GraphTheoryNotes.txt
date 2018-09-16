@@ -31,3 +31,5 @@ def find_isolated_nodes(graph):
 		if not graph[node]:
 			isolated.append(node)
 	return isolated
+
+A simple path is a path with no repeated vertices.
