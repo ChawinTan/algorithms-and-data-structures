@@ -1,3 +1,4 @@
+''' recursive '''
 class Solution:
     def inorderTraversal(self, root):
         """
@@ -15,3 +16,18 @@ class Solution:
             
         dfs(root)
         return res
+
+''' iterative '''
+def inorderTraversal(root):
+    s, res = []
+    cur = root
+
+    while cur:
+        if cur:
+            s.append(cur)
+            cur = cur.left
+        else:
+            temp = s.pop()   #pop when left side or every time child is None
+            res.append(root.val)
+            cur = cur.right
+    return res
