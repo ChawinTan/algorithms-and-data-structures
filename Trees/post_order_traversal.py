@@ -34,3 +34,5 @@ class Solution:
                 cur = stack.pop()  #x.left is still none, pop the one before x
                 cur = cur.left
         return list(reversed(res))
+''' [1,2,3,4,5,6,7] '''
+''' [4,5,2,6,7,3,1] '''
