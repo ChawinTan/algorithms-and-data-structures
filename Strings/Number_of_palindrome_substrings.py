@@ -1,3 +1,4 @@
+''' memoizatin '''
 class Solution(object):
     def countSubstrings(self, s):
         """
@@ -29,3 +30,26 @@ class Solution(object):
                         board[static][moving] = 0
         
         return sum([sum(counts) for counts in board])
+
+''' brute force '''
+class Solution(object):
+    def countSubstrings(self, S):
+        res = 0
+        for i in range(len(S)):
+            for j in range(i, len(S)):
+                if S[i:j+1] == S[i:j+1][::-1]:
+                    res += 1
+        return res
+
+''' expand by center '''
+class Solution(object):
+    def countSubstrings(self, S):
+        res = 0
+        for center in range(2*len(S)-1):   #-1 because last index is len(S) -1
+            left = int(center/2)
+            right = left+center%2
+            while left >= 0 and right < len(S) and S[left] == S[right]:
+                res+=1
+                left-=1
+                right+=1
+        return res
