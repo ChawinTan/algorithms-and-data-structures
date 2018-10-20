@@ -18,19 +18,19 @@ class Solution:
         return res
 
 ''' iterative '''
-def inorderTraversal(root):
-    s, res = []
-    cur = root
+        ans = []
+        stack = []
 
-    while cur:
-        if cur:
-            s.append(cur)
-            cur = cur.left
-        else:
-            temp = s.pop()   #pop when left side or every time child is None
-            res.append(root.val)
-            cur = cur.right
-    return res
+        while stack or root:
+            if root:
+                stack.append(root)
+                root = root.left
+            else:
+                tmpNode = stack.pop()
+                ans.append(tmpNode.val)
+                root = tmpNode.right
+
+        return ans
 
 ''' [1,2,3,4,5,6,7] '''
 ''' [4,2,5,1,6,3,7] '''
