@@ -1,0 +1,20 @@
+def sherlockAndAnagrams(s):
+    n = len(s)
+    holder = {}
+    
+    # Find all substrings using a straightforward double for loop
+    for i in range(n):
+        for j in range(i, n):
+            temp = s[i:j+1]
+            temp = ''.join(sorted(temp))
+            if temp not in holder:
+                holder[temp] = 1
+            elif holder[temp]:
+                holder[temp] += 1
+
+    # calculate the count of pairs using n(n-1)/2
+    res = 0
+    for s in holder:
+        if holder[s] >1:
+            res += int((holder[s]*(holder[s] - 1))/2)
+    return res
